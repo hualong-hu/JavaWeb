@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        table{
+            width: 400px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        tr{
+            vertical-align: middle;
+            text-align: center;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function submit() {
+            var name = document.getElementById("name");
+            var count = document.getElementById("count");
+            var price = document.getElementById("price");
+            var fare = document.getElementById("fare");
+            var total = document.getElementById("total");
+            var confirm = window.confirm("您本次购买的商品信息如下：\n\n" +
+                "商品名称："+name.innerHTML+"；\n商品数量："+count.innerHTML+"件；\n商品单价："+price.innerHTML+"元；\n运费："+fare.innerHTML+"元；\n\n" +
+                "费用总计："+total.innerHTML+"元；\n\n请确认以上信息是否有误！！！");
+            if (confirm){
+                alert("您的订单已提交！")
+            }else {
+                alert("您的订单已取消！")
+            }
+        }
+
+
+        // 进入全屏
+        function launchFullScreen(element) {
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+        }
+
+
+        function show() {
+            var isFullScreen = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;// 判断是否全屏
+            if (!isFullScreen) {
+                launchFullScreen(document.documentElement); // 整个页面全屏
+            }
+        }
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th colspan="5">简易购物车</th>
+        </tr>
+        <tr>
+            <td >商品名称</td>
+            <td >数量（件）</td>
+            <td >单价（元）</td>
+            <td >运费（元）</td>
+            <td >合计</td>
+        </tr>
+        <tr>
+            <td id="name">诺基亚</td>
+            <td id="count">1</td>
+            <td id="price">2200</td>
+            <td id="fare">20</td>
+            <td id="total">2400</td>
+        </tr>
+        <tr>
+            <td colspan="5"><input type="button" value="提交订单" onclick="submit()">&nbsp;
+                            <input type="button" value="全屏显示" id = "show" onclick="show()">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

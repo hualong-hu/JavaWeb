@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>HttpServletRequestTest</servlet-name>
+        <servlet-class>org.bigjava.servlet.HttpServletRequestTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServletRequestTest</servlet-name>
+        <url-pattern>/request</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HttpServletRequestTest1</servlet-name>
+        <servlet-class>org.bigjava.servlet.HttpServletRequestTest1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServletRequestTest1</servlet-name>
+        <url-pattern>/request1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>org.bigjava.servlet.Servlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <url-pattern>/servlet1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet2</servlet-name>
+        <servlet-class>org.bigjava.servlet.Servlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet2</servlet-name>
+        <url-pattern>/servlet2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ForwardC</servlet-name>
+        <servlet-class>org.bigjava.servlet.ForwardC</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ForwardC</servlet-name>
+        <url-pattern>/forwardC</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HttpServletResponse1</servlet-name>
+        <servlet-class>org.bigjava.servlet1.HttpServletResponse1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServletResponse1</servlet-name>
+        <url-pattern>/httpServletResponse1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Response1</servlet-name>
+        <servlet-class>org.bigjava.servlet1.Response1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Response1</servlet-name>
+        <url-pattern>/response1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Response2</servlet-name>
+        <servlet-class>org.bigjava.servlet1.Response2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Response2</servlet-name>
+        <url-pattern>/response2</url-pattern>
+    </servlet-mapping>
+
+</web-app>

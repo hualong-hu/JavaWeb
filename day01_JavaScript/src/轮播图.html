@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /*
+            设置outer的样式
+         */
+        #outer{
+            /*设置宽和高*/
+            width: 520px;
+            height: 330px;
+            /*居中*/
+            margin: 50px auto;
+            /*设置背景颜色*/
+            background-color: red;
+            /*设置padding*/
+            padding: 10px 0;
+            /*开启相对定位*/
+            position: relative;
+            /*裁剪溢出的内容*/
+            overflow: hidden;
+        }
+        /*设置imgList*/
+        #imgList{
+            /*去除项目符号*/
+            list-style: none;
+            /*开启绝对定位*/
+            position: absolute;
+        }
+        /*设置图片中的li*/
+        #imgList li{
+            /*设置浮动*/
+            float: left;
+            /*设置左右外边距*/
+            margin: 0 10px;
+        }
+        /*设置导航按钮*/
+        #navigation{
+            /*开启绝对定位*/
+            position: absolute;
+            /*设置位置*/
+            bottom:15px;
+        }
+        #navigation a{
+            /*设置超链接的浮动*/
+            float: left;
+            /*设置超链接的宽和高*/
+            width: 15px;
+            height: 15px;
+            /*设置背景颜色*/
+            background-color: green;
+            /*设置左右外边距*/
+            margin: 0 5px;
+            /*设置透明*/
+            opacity: 0.5;
+
+        }
+        /*设置鼠标移入的效果*/
+        #navigation a:hover{
+            background-color: black;
+        }
+    </style>
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            /*设置ul的宽度*/
+            //获取imgList
+            var imgList = document.getElementById("imgList");
+            //获取页面中所有的img标签
+            var img = document.getElementsByTagName("img");
+            //设置imgList的高度
+            imgList.style.width = 520*img.length+"px";
+
+            //设置导航按钮居中
+            //获取navigation
+            var nav = document.getElementById("navigation");
+            //获取outer
+            var outer = document.getElementById("outer");
+            //设置navigation的left值
+            nav.style.left = (outer.offsetWidth - nav.offsetWidth)/2 +"px";
+
+            //默认显示图片的索引
+            var index = 0;
+            //获取所有的a
+            var allA = document.getElementsByTagName("a");
+
+            allA[index].style.backgroundColor = "black";
+
+            /*
+                点击超链接切换到指定的图片
+             */
+            //给所有的超链接绑定单击事件
+            for (var i = 0 ; i < allA.length ; i++ ){
+                //为每一个超链接添加num属性
+                allA[i].num = i;
+
+                allA[i].onclick = function () {
+                    //关闭自动切换的定时器
+                    clearInterval(time);
+                    //获取点击超链接的索引,并将其设置为index
+                    index = this.num;
+                    //修改正在选中的a
+                    setA();
+                    //使用move函数来切换图片
+                    move(imgList,"left",-520*index,30);
+                    //动画执行完毕，开启自动切换
+                    autoChange();
+                };
+            }
+            //开启自动切换
+            autoChange();
+
+            //创建一个方法来设置选中的a
+            function setA() {
+                //判断当前索引是否是最后一张照片
+                if (index >= img.length){
+                    //将index设置为0
+                    index = 0;
+                    //通过css将最后一张切换成第一张
+                    imgList.style.left = 0 + "px";
+                }
+
+                //遍历所有的a，并将背景颜色改为绿色
+                for (var i = 0 ; i < allA.length ; i++){
+                    allA[i].style.backgroundColor = "";
+                }
+                //将选中的a设置为黑色
+                allA[index].style.backgroundColor = "black";
+            }
+            //创建一个函数用来开启自动切换图片
+            var time
+            function autoChange() {
+                //开启一个定时器用来定时切换图片
+                time = setInterval(function () {
+                    //设置索引自增
+                    index++;
+                    //修改导航按钮
+                    setA();
+                    //执行动画，切换图片
+                    move(imgList,"left",-520*index,30);
+                },3000);
+            }
+
+
+        };
+        /**
+         *  创建一个可以执行动画的函数
+         * @param obj 需要执行动画的对象
+         * @param attr 要执行动画的样式
+         * @param target 执行动画的目标位置
+         * @param speed 移动的速度
+         */
+        function move(obj,attr,target,speed) {
+            //关闭上一个定时器定时器
+            clearInterval(obj.timer);
+
+            //获取元素目前的位置
+            var current = parseInt(getStyle(obj,attr));
+
+            //判断速度的正负值
+            //速度为正向右移，反之向左移
+            if (current > target){
+                //此时速度为负值
+                speed = -speed;
+            }
+            //开启一个定时器，用来执行动画效果
+            //向执行动画的对象中添加一个timer属性，用来保存它自己的定时器的标识
+            obj.timer = setInterval(function () {
+                //获取原来的attr值
+                var oldValue = parseInt(getStyle(obj,attr));
+
+                //在旧值的基础上增加
+                var newValue = oldValue + speed;
+
+                //判断newValue是否大于target
+                if ((speed < 0 && newValue <target) || (speed > 0 && newValue > target)){
+                    newValue = target;
+                }
+
+                //将新值设置给obj
+                obj.style[attr] = newValue + "px";
+
+                //当元素移动到0px时，使其停止执行动画
+                if (newValue == target){
+                    //达到目标，关闭定时器
+                    clearInterval(obj.timer);
+                }
+            },30);
+        }
+
+        /**
+         * 创建获取元素目前的位置的函数
+         * @param obj 要获取的样式的元素
+         * @param name 要获取的样式名
+         * @returns {string}
+         */
+        function getStyle(obj,name) {
+            return getComputedStyle(obj,null)[name];
+        }
+    </script>
+</head>
+<body>
+    <!-- 创建一个外部的div-->
+    <div id="outer">
+    <!--创建一个ul，用于放置图片-->
+        <ul id="imgList">
+            <li><img src="image1.jpg" width="500px" height="330px"></li>
+            <li><img src="image2.jpg" width="500px" height="330px"></li>
+            <li><img src="image3.jpg" width="500px" height="330px"></li>
+            <li><img src="image4.jpg" width="500px" height="330px"></li>
+            <li><img src="image5.jpg" width="500px" height="330px"></li>
+            <li><img src="image6.jpg" width="500px" height="330px"></li>
+        </ul>
+        <!--创建导航按钮-->
+        <div id="navigation">
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+        </div>
+    </div>
+</body>
+</html>

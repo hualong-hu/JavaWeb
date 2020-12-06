@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            //现在需要我们使用js代码来创建html标签，并显示在页面上
+            //标签的内容就是<div>龙哥好帅！！</div>
+            const div = document.createElement("div");//<div></div>在内存中
+
+            // const text = document.createTextNode("龙哥好帅！！");//有一个文本节点对象
+            // div.appendChild(text);//<div>龙哥好帅！！</div>
+
+            div.innerHTML = "龙哥好帅！！"//<div>龙哥好帅！！</div>还只是在内存中
+            //添加子元素
+            document.body.appendChild(div);
+        }
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

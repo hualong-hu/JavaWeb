@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //onblur 失去焦点事件： 常用用于输入框失去焦点后验证其输入内容是否合法。
+
+        function onblurFun() {
+            console.log("静态注册！");
+        }
+
+        //动态注册onblur事件
+        window.onload = function () {
+            //1.获取标签对象
+            var elementById = document.getElementById("pass");
+
+            //2.通过标签对象.事件名 = function(){}
+            elementById.onblur = function () {
+                console.log("动态注册！")
+            }
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+    用户名：<input type="text" onblur="onblurFun()"><br>
+    密码：<input id="pass" type="password"><br>
+</body>
+</html>

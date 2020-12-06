@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="script/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var name = $("#name").val();
+        var password = $("#password").val();
+
+        $.ajax({
+            url:"testServlet?username="+name +"&password="+password,
+            type:"get",
+            success:function (result) {
+                $("#msg").html(result);
+            }
+        })
+
+    })
+</script>
+<body>
+    <form>
+        用户名<input type="text" id="name"> <br>
+        密码<input type="password" id="password"><br>
+    </form>
+    <div id="msg"></div>
+</body>
+</html>

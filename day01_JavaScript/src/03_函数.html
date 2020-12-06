@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //************************函数的第一种定义方式**********************************
+        //定义一个无参函数
+        function fun1() {
+            alert("无参函数fun1()被调用了");
+        }
+        //fun1();
+
+        //定义一个带参函数
+        function fun2(num1,num2) {
+            alert("带参函数fun2()被调用了，num1="+num1 + ",num2="+num2);
+        }
+        //fun2(20,"abc");
+
+        //定义一个带返回值的函数
+        function fun3(a,b) {
+            return a + b;
+        }
+        //alert(fun3(10,50));
+        //************************函数的第二种定义方式**********************************
+
+        var fun4 = function () {
+            alert("无参函数");
+        }
+        fun4();
+
+        var fun5 = function (num1,num2) {
+            alert("\"带参函数fun2()被调用了，num1="+num1 + ",num2="+num2);
+        }
+        fun5(20,60);
+
+        var fun6 = function (a,b) {
+            return  a+b;
+
+        }
+        alert(fun6(10,60));
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

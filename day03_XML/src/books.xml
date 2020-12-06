@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book sn="SN12341232" type="必修课">
+        <name>js</name>
+        <price>9.9</price>
+        <author>李四</author>
+    </book>
+    <book sn="SN12341231" type="必修课">
+        <name>java</name>
+        <price>99.99</price>
+        <author>张三</author>
+    </book>
+    <book sn="SN12341231" type="必修课">
+        <name>jquery</name>
+        <price>99.99</price>
+        <author>王五</author>
+    </book>
+    <book sn="SN12341231" type="必修课">
+        <name>mybatis</name>
+        <price>99.99</price>
+        <author>赵六</author>
+    </book>
+    <book sn="SN12341231" type="必修课">
+    <name>spring</name>
+    <price>99.99</price>
+    <author>小二</author>
+    </book>
+
+    <book sn="SN12341231" type="选修课">
+        <name>ps</name>
+        <price>99.99</price>
+        <author>小二</author>
+    </book>
+
+    <book sn="SN12341231" type="选修课">
+        <name>vue</name>
+        <price>99.99</price>
+        <author>小二</author>
+    </book>
+
+</books>

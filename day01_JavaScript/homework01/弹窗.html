@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    function button1() {
+        window.open("http://www.baidu.com");
+    }
+    function button2() {
+        window.open("http://www.baidu.com","_black","menubar=no,width=500,height=500");
+    }
+    // 进入全屏
+    function launchFullScreen(element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
+
+    function button3() {
+        var isFullScreen = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;// 判断是否全屏
+        if (!isFullScreen) {
+            launchFullScreen(document.documentElement); // 整个页面全屏
+        }
+    }
+
+    function button4() {
+        window.confirm("你喜欢js吗？");
+    }
+    function button5() {
+        window.close();
+    }
+</script>
+<body>
+    <input type="button" value="弹出窗口" onclick="button1()"><br/>
+    <input type="button" value="弹出固定大小窗口，且无菜单栏登" onclick="button2()"><br/>
+    <input type="button" value="全屏显示" onclick="button3()"><br/>
+    <input type="button" value="打开确认窗口" onclick="button4()"><br/>
+    <input type="button" value="关闭窗口" onclick="button5()"><br/>
+    <input type="text" value="666666666666666" readonly maxlength="999999999999" style="width: 50px ;border:medium none">
+</body>
+</html>

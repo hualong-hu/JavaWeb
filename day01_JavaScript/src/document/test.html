@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function checkAll() {
+            var all  = document.getElementsByName("hobby");
+            for (var i = 0; i<all.length;i++){
+                all[i].checked=true;
+            }
+        }
+        function checkNone() {
+            var checkNone = document.getElementsByName("hobby");
+            for (var i = 0 ;i<checkNone.length;i++){
+                checkNone[i].checked=false;
+            }
+        }
+        function checkServer() {
+            var name = document.getElementsByName("hobby");
+            for (var i = 0;i<name.length;i++){
+                name[i].checked = !name[i].checked;
+            }
+        }
+        function checkall1() {
+            var id = document.getElementById("check");
+            var hobby = document.getElementsByName("hobby");
+            for (var i = 0;i<hobby.length;i++){
+                if (id.checked == true){
+                    hobby[i].checked = true;
+                }else {
+                    hobby[i].checked = false;
+                }
+
+
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="hobby">java<br>
+    <input type="checkbox" name="hobby">c++<br>
+    <input type="checkbox" name="hobby">c#<br>
+
+    <input type="button" value="全选" onclick = checkAll()>
+
+    <input type="button" value="全不选" onclick="checkNone()">
+
+    <input type="button" value="反选" onclick="checkServer()">
+    <br>
+    <input type="checkbox" id="check" onclick="checkall1()">全选<br>
+
+</body>
+</html>

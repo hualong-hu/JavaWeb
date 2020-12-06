@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function getTotal() {
+            let num1 = prompt("请输入考试科目的数量");
+            if (!isNaN(num1)){
+                let total = 0;
+                let i  = 0;
+                for ( i ; i < num1 ; i++){
+                    const course = prompt("请输入第"+ (i+1) + "门科目成绩");
+                    if (course >= 0 && course <=100){
+                        total += parseInt(course);
+                    }else if (course < 0 ){
+                        alert("成绩不能为负")
+                        break;
+                    }else {
+                        alert("成绩不能高于满分！")
+                        break;
+                    }
+                }
+                if (i == num1){
+                    alert(num1 + "门科目的总成绩是：" + total);
+                }
+            }else{
+                alert("输入的不是数字！")
+            }
+        }
+    </script>
+</head>
+<body>
+<button onclick="getTotal()">成绩总和</button>
+</body>
+</html>

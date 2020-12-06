@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="script/jquery-1.7.2.js"></script>
+</head>
+<style type="text/css">
+    #nav{
+        background-color: lavender;
+        width: 100px;
+        text-align: center;
+    }
+
+    #li{
+        background-color: lavender;
+        line-height: 30px;
+        width: 100px;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $("#nav").click(function () {
+            $("#nav1").toggle(500);
+        })
+
+        $("li").mouseover(function () {
+            $(this).css("background-color","red")
+        })
+        $("li").mouseout(function (){
+            $(this).css("background-color","")
+        })
+    })
+</script>
+
+<body>
+
+<div>
+    <div id="nav">
+        <strong>购物特权</strong>
+    </div>
+    <div id="nav1" style="display: none">
+        <ul id="li" style="list-style-type: none">
+            <li>金额兑换</li>
+            <li>俱乐部包邮卡</li>
+            <li>购物领金币</li>
+            <li>每日领金币</li>
+            <li>VIP阶梯价</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

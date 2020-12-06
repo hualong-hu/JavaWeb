@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //***************************方式一********************************
+        /*
+            对象的自定义;
+                var 变量名 = new Object()  --->  对象实例（空对象）
+                变量名.属性名 = 值  --->  定义一个属性
+                变量名.函数名 = function(){} --->  定义一个函数
+         */
+        var obj = new Object();
+        obj.name = "刘雯静";
+        obj.age = 20;
+        obj.fun = function () {
+            document.write("姓名："+ this.name + ",年龄："+this.age);
+        }
+        //对象的访问
+        //  变量名.属性 / 函数名
+        obj.fun();
+
+        //***************************方式二********************************
+
+        /*
+            对象的定义：
+                var 变量名 ={     // 空对象
+                属性名：值, // 定义一个属性
+                属性名：值, // 定义一个属性
+                函数名：function(){} // 定义一个函数
+                };
+         */
+        var obj2 = {
+            name : "刘雯静",
+            age : 20,
+            fun1 : function () {
+                alert("姓名："+this.name+"年龄："+ this.age);
+            }
+        }
+
+        //对象的访问
+        //  变量名.属性 / 函数名
+        obj2.fun1();
+
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

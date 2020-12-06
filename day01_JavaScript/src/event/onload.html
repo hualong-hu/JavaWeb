@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //onload 加载完成事件： 页面加载完成之后，常用于做页面 js 代码初始化操作
+        //onload事件的方法
+        function onloadFun() {
+            alert("静态注册onload事件")
+        }
+
+        //onload 事件动态注册，是固定写法
+        window.onload = function () {
+            alert("动态注册！")
+        }
+
+    </script>
+</head>
+<!-- 静态注册onload时间
+        onload事件是浏览器解析完页面之后就会自动触发的事件
+        <body onload="onload()">
+-->
+<body>
+
+</body>
+</html>

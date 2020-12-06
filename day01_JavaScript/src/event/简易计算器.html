@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // function getResult(){
+        //     var num1 = prompt("欢迎使用简易计算器：\n请输入第一个数值");
+        //     var num2 = prompt("请输入第二个数值");
+        //     var num = prompt("请输入运算符号：");
+        //     switch (num){
+        //         case "+":
+        //             alert( parseInt(num1) + parseInt(num2) );
+        //             break;
+        //         case "-":
+        //             alert( parseInt(num1) - parseInt(num2) );
+        //             break;
+        //         case "*":
+        //             alert( parseInt(num1) * parseInt(num2) );
+        //             break;
+        //         case "/":
+        //             alert( parseInt(num1) / parseInt(num2) );
+        //     }
+        // }
+        function getResult(num1, num2){
+            var num = prompt("请输入运算符");
+            switch (num){
+                case "+":
+                    return num1 + num2 ;
+                case "-":
+                    return num1 - num2 ;
+                case "*":
+                    return num1 * num2 ;
+                case "/":
+                    return num1 / num2 ;
+            }
+        }
+        var num1 = prompt('请输入第一个数值');
+        var num2 = prompt('请输入第二个数值');
+        var result = getResult(parseInt(num1),parseInt(num2));
+        alert('结果是：'+result);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //需求：编写一个函数，用于计算所有参数相加的和并返回
+        function getSum(num1,num2) {
+            var result = num1+num2;
+
+            for (var i = 0 ; i < arguments.length ; i++){
+                if (typeof arguments[i] == "number"){
+                    result += arguments[i];
+                }
+            }
+            return result;
+
+        }
+        alert(getSum(1,2,3,4,5,"acd",6,7,8,9));
+        document.write(getSum(1,2,3,4,5,"acd",6,7,8,9));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

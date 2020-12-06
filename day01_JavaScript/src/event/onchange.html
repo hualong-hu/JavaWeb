@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+    //onchange 内容发生改变事件： 常用于下拉列表和输入框内容发生改变后操作
+
+        //静态注册
+        function onchangeFun() {
+            alert("静态注册！女神以改变");
+        }
+
+        //动态注册
+        window.onload = function () {
+            //获取标签对象
+            var elementById = document.getElementById("nansheng");
+
+            //通过标签对象.事件名 = function(){}
+            elementById.onchange = function () {
+                alert("动态注册!男神已改变")
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <select onchange="onchangeFun()">
+        <option>--女神--</option>
+        <option>李沁</option>
+        <option>鞠婧祎</option>
+        <option>赵丽颖</option>
+        <option>刘亦菲</option>
+    </select>
+    <select id="nansheng">
+        <option>--男神--</option>
+        <option>李易峰</option>
+        <option>刘德华</option>
+        <option>郭富城</option>
+        <option>黎明</option>
+    </select>
+</body>
+</html>

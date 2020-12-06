@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+    //需求：当用户点击了校验按钮，要获取输出框中的内容，然后验证其是否合法
+    //验证的规则是：必须由字母、数字、下划线组成。并且长度是5到12
+
+        function onclickFun() {
+            //当我们需要操作一个标签试时，一定要先获取这个标签的对象
+            const usernameObj = document.getElementById("user");
+            const span = document.getElementById("span");
+            const value = usernameObj.value;
+            //借助正则表达式验证
+            const patt = /^\w{5,15}$/;
+            //test()方法用于测试某个字符串是不是匹配我的规则
+            //匹配就返回true，不匹配返回false
+            if (patt.test(value)){
+                // alert("用户名合法！")
+                span.innerHTML = "<img src=\"right.png\" width=\"18\" height=\"18\">";
+            }else{
+                // alert("用户名不合法！")
+                span.innerHTML = "<img src=\"wrong.png\" width=\"18\" height=\"18\">";
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+用户名：<input type="text" id="user" value="123"/>
+<span id="span" style="color: red">
+
+</span>
+
+<button onclick="onclickFun()">校验</button>
+</body>
+</html>
